@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>MEOW</h1>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Home - QuickNotes{% endblock %}
+
+{% block content %}
+    <h1>Welcome to QuickNotes</h1>
+    <p>Your personal space to save, access, and share notes securely.</p>
+    <p>Features include user authentication, private notes, and sharing support.</p>
+{% endblock %}

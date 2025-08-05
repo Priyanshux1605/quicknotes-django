@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}QuickNotes{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-left">QuickNotes</div>
+        <div class="nav-right">
+            <a href="/user/login/" class="btn btn-blue">Login</a>
+            <a href="/user/signup/" class="btn btn-red">Sign Up</a>
+        </div>
+    </nav>
+
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+
+</body>
+</html>
