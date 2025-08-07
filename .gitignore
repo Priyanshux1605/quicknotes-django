@@ -1,1 +1,14 @@
+# Python cache files
+*.pyc
+__pycache__/
+
+# VS Code or IDE configs
+.vscode/
+.idea/
+
+# Virtual environment
 .env/
+
+# Django SQLite DB
+db.sqlite3
+

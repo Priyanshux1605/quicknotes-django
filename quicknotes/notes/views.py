@@ -1,5 +1,33 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
+from django.contrib import messages
 
-# Create your views here.
-def sign_up(request):
-    return render(request,'notes/sign_up.html')
+def signup_view(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        if User.objects.filter(username=username).exists():
+            messages.error(request, "Username already taken.")
+            return redirect('signup')
+        user = User.objects.create_user(username=username, password=password)
+        login(request, user)
+        return redirect('notes-home')  # later, show user notes page
+    return render(request, 'notes/signup.html')
+
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('notes-home')
+        else:
+            messages.error(request, "Invalid credentials")
+            return redirect('login')
+    return render(request, 'notes/login.html')
+
+def logout_view(request):
+    logout(request)
+    return redirect('index')  # send to homepage
