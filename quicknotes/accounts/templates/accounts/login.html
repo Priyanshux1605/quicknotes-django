@@ -1,0 +1,17 @@
+{% extends 'base2.html' %}
+{% load static %}
+
+{% block title %}Login · QuickNotes{% endblock %}
+{% block content %}
+<div class="auth-container">
+  <h2>Login</h2>
+  <form method="POST" class="auth-form">
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <button type="submit">Login</button>
+  </form>
+  <p class="auth-foot">Don’t have an account?
+    <a href="{% url 'signup' %}">Sign up</a>
+  </p>
+</div>
+{% endblock %}
