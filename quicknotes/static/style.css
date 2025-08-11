@@ -113,3 +113,4 @@ body {
 }
 .auth-foot a:hover { text-decoration: underline; }
 
+.alert.alert-error { background:#fdd; color:#900; padding:8px; border-radius:4px; margin:8px 0; }

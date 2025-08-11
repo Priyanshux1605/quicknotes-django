@@ -1,15 +1,20 @@
 {% extends 'base2.html' %}
-{% load static %}
-
 {% block title %}Login · QuickNotes{% endblock %}
 {% block content %}
 <div class="auth-container">
   <h2>Login</h2>
+
+  {% if error %}
+    <p class="alert alert-error">{{ error }}</p>
+  {% endif %}
+
   <form method="POST" class="auth-form">
+    {% csrf_token %}
     <input type="text" name="username" placeholder="Username" required>
     <input type="password" name="password" placeholder="Password" required>
     <button type="submit">Login</button>
   </form>
+
   <p class="auth-foot">Don’t have an account?
     <a href="{% url 'signup' %}">Sign up</a>
   </p>
